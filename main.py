@@ -1,7 +1,7 @@
 import sys
 import json
 from PyQt6.QtWidgets import QApplication, QWidget, QTableWidgetItem
-from uiminip3 import Ui_Form
+from uiminip import Ui_Form
 
 
 class MyWidget(QWidget, Ui_Form):
@@ -13,13 +13,13 @@ class MyWidget(QWidget, Ui_Form):
         self.args = []
 
         # загрузка сохраненных значений
-        # with open('items3.json', 'r') as argr:
+        # with open('items.json', 'r') as argr:
         #     jlarg = json.load(argr)
         #     self.yes_lbl.setText(str(jlarg[0]))
         #     self.no_lbl.setText(str(jlarg[1]))
 
         # загрузка списка и таблицы таблицы
-        with open('items3.json') as items:
+        with open('items.json') as items:
             self.loc_items = json.load(items)
             for row in self.loc_items:
                 self.rowmaker(row)
@@ -58,7 +58,7 @@ class MyWidget(QWidget, Ui_Form):
 
     # сохранение значений
     def safe(self):
-        with open('items3.json', 'w') as items:
+        with open('items.json', 'w') as items:
             json.dump(self.loc_items, items)
 
 
